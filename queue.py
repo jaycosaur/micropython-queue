@@ -70,6 +70,8 @@ class Queue:
 
     def full(self):
         # does not acquire lock
+        if self.maxsize == 0:
+            return False
         return len(self.queue) == self.maxsize
 
     def qsize(self):
